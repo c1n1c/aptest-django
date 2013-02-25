@@ -1,0 +1,32 @@
+{% extends "page.html" %}
+
+{% block title %}редактирование{% endblock %}
+
+{% block breadcrumbs %}
+<a href="/">Главная</a> &rsaquo;
+{% for page in page.get_ancestors %}
+<a href="{{ page.get_absolute_url }}">{{ page.title }}</a> &rsaquo;
+{% endfor %}
+{% if page %}
+<a href="{{ page.get_absolute_url }}">{{ page.title }}</a> &rsaquo;
+{% endif %}
+<a>{% if page_not_exist %}{{ page_not_exist }}{% else %}редактирование{% endif %}</a>
+{% endblock %}
+
+{% block links %}{% endblock %}
+
+{% block menu %}{% endblock %}
+
+{% block content %}
+{% if page_not_exist %}
+<h1>Страница не существует</h1>
+<p>Страница "{{ page_not_exist }}" не существует, но ее можно <a href="{{ page.get_absolute_url|default:'/' }}add/?name={{ page_not_exist }}">создать</a>.</p>
+{% else %}
+<h1>Редактирование страницы "{{ page.title }}"</h1>
+<form action="." method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <input type="submit" value="Сохранить">
+</form>
+{% endif %}
+{% endblock %}

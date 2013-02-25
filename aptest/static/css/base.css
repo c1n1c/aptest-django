@@ -1,0 +1,50 @@
+#header {
+  background: lightblue;
+  padding: 4px;
+}
+#header div {
+  display: inline-block;
+  margin: 0 30px;
+}
+#header div.logo {
+  font-weight: bold;
+}
+#header div.links {
+  float: right;
+}
+#menu {
+  float: left;
+}
+#menu ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 12px;
+}
+#menu ul.parent {
+  background: lavender;
+  margin-right: 20px;
+  padding: 10px;
+}
+
+form label {
+  display: inline-block;
+  text-align: right;
+  width: 100px;
+}
+form label[for=id_content] {
+  vertical-align: top;
+}
+form input[type=text] {
+  width: 300px;
+}
+form input[type=submit] {
+  margin-left: 100px;
+}
+form textarea {
+  width: 800px;
+}
+
+ul.errorlist {
+  color: red;
+  margin-left: 100px;
+}
